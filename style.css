@@ -509,6 +509,16 @@ nav {
     color: var(--color-2);
   
 }
+.accordion p {
+    line-height: 1.6;
+    padding: 0 20px;
+ 
+}
+.accordion .numero {
+    font-size: 1.6rem;
+    padding: 0;
+    margin: 0;
+}
 .accordion H3 {
     color: var(--color-2);
     font-family: var(--font-principal);

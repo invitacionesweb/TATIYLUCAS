@@ -83,53 +83,12 @@
         <img src="./img-editable/timing-mobile.png" alt="">
     </div>
 
+    <!-- DRESS CODE: un solo bloque enmarcado, fijo (no desplegable) -->
     <div id="section2" class="accordion">
-        <!--<h3 data-aos="fade-up">Antes de que nos consultes...</h3>-->
-
-        <div data-aos="fade-up" class="accordion-item">
-            <button class="accordion-header">¿CÓMO ME VISTO?</button>
-            <div class="accordion-content">
-                <p>DRESS CODE: FORMAL <br> NO OLVIDES QUE EL BLANCO ES DE LA NOVIA. 🤍</p>
-            </div>
+        <div data-aos="fade-up" class="accordion-item active">
+            <h3>Dress code</h3>
+             <p>FORMAL <br> NO OLVIDES QUE EL BLANCO ES DE LA NOVIA. 🤍</p><br>
         </div>
-
-        <div data-aos="fade-up" class="accordion-item">
-            <button class="accordion-header">¿QUÉ LES REGALO?</button>
-            <div class="accordion-content">
-                <p>SU PRESENCIA ES NUESTRO MEJOR REGALO. 🤍 Y SI DESEAN TENER UN DETALLE CON NOSOTROS, LES DEJAMOS NUESTROS NÚMEROS DE CUENTA.</p>
-
-                <div class="gift-block">
-                    <p><b>EN PESOS</b></p>
-                    <div class="gift-box">
-                        <div class="boton2" data-copy="3454048">COPIAR N° DE CUENTA</div>
-                    </div>
-                    <br>
-                    <p>Banco Itaú - Cuenta en pesos <br>
-                    Titular de la cuenta: Lucas Ferreira</p>
-                </div>
-
-                <br>
-
-                <div class="gift-block">
-                    <p><b>EN DÓLARES</b></p>
-                    <div class="gift-box">
-                        <div class="boton2" data-copy="8967102">COPIAR N° DE CUENTA</div>
-                    </div>
-                    <br>
-                    <p>Banco Itaú - Cuenta en dólares <br>
-                    Titular de la cuenta: Tatiana Aguilera</p>
-                </div>
-            </div>
-        </div>
-
- <!--
-               <div data-aos="fade-up" class="accordion-item">
-            <button class="accordion-header">¿QUÉ PASA SI TENGO MÁS DUDAS?</button>
-            <div class="accordion-content">
-                <p>CREEMOS QUE TODAS TUS DUDAS ESTÁN RESUELTAS, PERO SI TENÉS MÁS CONSULTAS, NO DUDES EN ESCRIBIRNOS.</p>
-            </div>
-        </div>
-        -->
 
         <div class="icono4">
             <img data-aos="fade-down" src="./img-editable/icono4.png" alt="">
@@ -139,10 +98,11 @@
         </div>
     </div>
 
+    <!-- REGALOS: sección aparte con las clases .regalos que ya tiene el CSS -->
+
+
     <div class="forms">
 
-        <!-- REEMPLAZAR: pegar acá la URL del Apps Script de la planilla de Tati & Lucas.
-             La URL anterior era la de Barbi y Fer (las respuestas irían a su planilla). -->
         <form name="asistenciaform" method="POST" action="https://script.google.com/macros/s/AKfycbz-8HNeqy361jq77DjRgezdULAq6k9VsS93GepK4F8vZVx9eufJFD3cVG8GFxNmshzJ/exec" class="formulario">
         <label class="formtitle">Sólo faltas vos, venís?</label>
         <div class="radio-group">
@@ -168,6 +128,29 @@
         <p data-aos="fade-up">RECORDÁ CONFIRMAR TU ASISTENCIA <br>ANTES DEL 19 DE NOVIEMBRE. <br>COMPLETÁ UN FORMULARIO POR PERSONA.</p>
     </div>
 
+     <div id="section2" class="accordion">
+        <div data-aos="fade-up" class="accordion-item active">
+            <h3>Su cariño no tiene precio</h3>
+             <p>PERO SI QUIEREN TENER UN DETALLE CON NOSOTROS, <br> ACÁ DEJAMOS NUESTROS NÚMEROS DE CUENTA:
+                <br><br>
+              BANCO ITAÚ - CUENTA EN PESOS <br> TITULAR DE LA CUENTA: LUCAS FERREIRA </p>
+            <P class="numero"> <STRong> NÚMERO: 3454048</STRong></P>
+                
+            <p>BANCO ITAÚ - CUENTA EN DÓLARES <br>
+                TITULAR DE LA CUENTA: TATIANA AGUILERA</p>
+                <p class="numero"><strong>NÚMERO: 8967102</strong></p>
+                
+            
+             <br>
+        </div>
+
+        <div class="icono4">
+            <img data-aos="fade-down" src="./img-editable/icono4.png" alt="">
+        </div>
+        <div class="icono5">
+            <img data-aos="fade-up" src="./img-editable/icono5.png" alt="">
+        </div>
+    </div>
     <div class="novios">
         <img src="./img-editable/fotos2.png" alt="">
         <div class="icono6">
@@ -215,25 +198,13 @@
             // Reproduce el audio apenas la persona hace el primer scroll
             var audio = document.getElementById('myAudio');
             function playOnScroll() {
+                if (!audio) return;
                 audio.play().catch(function (e) {
                     console.warn('El navegador bloqueó la reproducción automática', e);
                 });
                 document.removeEventListener('scroll', playOnScroll);
             }
             document.addEventListener('scroll', playOnScroll);
-
-            // Acordeón de preguntas frecuentes (uno abierto a la vez)
-            var headers = document.querySelectorAll('.accordion-header');
-            headers.forEach(function (header) {
-                header.addEventListener('click', function () {
-                    var item = header.parentElement;
-                    var yaEstabaActivo = item.classList.contains('active');
-                    headers.forEach(function (otroHeader) {
-                        otroHeader.parentElement.classList.remove('active');
-                    });
-                    if (!yaEstabaActivo) item.classList.add('active');
-                });
-            });
 
             // Copiar números de cuenta al portapapeles
             document.querySelectorAll('[data-copy]').forEach(function (el) {
